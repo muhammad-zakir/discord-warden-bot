@@ -31,5 +31,5 @@ jobs:
           key: ${{ secrets.INSTANCE_SSH_KEY }}
           script: |
             cd ${{ secrets.DEPLOYMENT_DIRECTORY }}
-            ls
-            python3 --version
+            pip3 install --requirement requirements.txt
+            python3 main.py

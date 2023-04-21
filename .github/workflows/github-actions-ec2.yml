@@ -22,3 +22,13 @@ jobs:
           REMOTE_HOST: ${{ secrets.INSTANCE_DNS }}
           REMOTE_USER: ${{ secrets.INSTANCE_USERNAME }}
           TARGET: ${{ secrets.DEPLOYMENT_DIRECTORY }}
+
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.INSTANCE_DNS }}
+          username: ${{ secrets.INSTANCE_USERNAME }}
+          key: ${{ secrets.INSTANCE_SSH_KEY }}
+          script: |
+            cd ${{ secrets.DEPLOYMENT_DIRECTORY }}
+            python3 --version

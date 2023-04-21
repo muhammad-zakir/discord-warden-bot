@@ -32,4 +32,4 @@ jobs:
           script: |
             cd ${{ secrets.DEPLOYMENT_DIRECTORY }}
             pip3 install --requirement requirements.txt
-            nohup python3 main.py > /dev/null
+            nohup python3 main.py > /dev/null 2>&1 &
